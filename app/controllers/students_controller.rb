@@ -9,7 +9,12 @@ class StudentsController < ApplicationController
   end
 
   def create
-    require 'pry'; binding.pry
+    @student = Student.new(student_params)
+    if @student.save
+      redirect_to student_path(@student)
+    else
+      render :new
+    end
   end
 
   def show
@@ -20,5 +25,6 @@ class StudentsController < ApplicationController
   private
 
     def student_params
+      params.require(:student).permit(:name)
     end
 end
