@@ -16,7 +16,7 @@ describe 'As a user' do
 
       address = Address.all.last
 
-      expect(current_path).to eq(student_address_path(student))
+      expect(current_path).to eq "/students/#{student.id}/addresses/#{address.id}"
     end
   end
 end

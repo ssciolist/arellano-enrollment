@@ -19,10 +19,16 @@ class AddressesController < ApplicationController
     end
   end
 
+  def show
+    @student = Student.find(params[:student_id]).id
+    @addresses = @student.addresses.all
+    render :show
+  end
+
   private
 
     def address_params
-      params.require(:address).permit(:description, :street, :city, :state, :zip_code)
+      params.require(:address).permit(:description, :street, :city, :state, :zip_code, :student_id)
     end
 
 end
