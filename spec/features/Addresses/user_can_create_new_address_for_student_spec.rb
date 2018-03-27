@@ -7,16 +7,16 @@ describe 'As a user' do
       visit new_student_address_path(student)
 
       fill_in 'address[description]', with: 'Home'
-      fill_in 'address[street_address]', with: '1234 Fake Street'
+      fill_in 'address[street]', with: '1234 Fake Street'
       fill_in 'address[city]', with: 'Denver'
       fill_in 'address[state]', with: 'CO'
-      fill_in 'address[zip]', with: '80218'
+      fill_in 'address[zip_code]', with: '80218'
 
       click_button 'Create Address'
 
       address = Address.all.last
 
-      expect(current_path).to eq(student_addresses)
+      expect(current_path).to eq(student_address_path(student))
     end
   end
 end
