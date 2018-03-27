@@ -1,1 +1,22 @@
 <h1>Student Record for <%= @student.name %></h1>
+
+<h1>All addresses</h1>
+
+<table>
+  <tr>
+    <th>Description</th>
+    <th>Street</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip Code</th>
+  </tr>
+<%= @student.addresses.each do |address| %>
+  <tr>
+    <td><%= address.description %><td>
+    <td><%= address.street %><td>
+    <td><%= address.city %><td>
+    <td><%= address.state %><td>
+    <td><%= address.zip_code %><td>
+  </tr>
+<% end %>
+</table>

@@ -16,8 +16,10 @@ describe 'As a user' do
                                 zip_code: 59854)
       visit student_path(student)
 
-      expect(page).to have_content(address)
-      expect(page).to have_content(address_2)
+      expect(page).to have_content(address.street)
+      expect(page).to have_content(address.city)
+      expect(page).to have_content(address_2.street)
+      expect(page).to have_content(address_2.city)
     end
   end
 end
