@@ -3,8 +3,9 @@ require 'rails_helper'
 describe 'As a user' do
   describe 'when I visit /students/addresses/new' do
     scenario 'I can fill in a new student address form and submit' do
-      visit new_student_address_path
-save_and_open_page
+      student = Student.create!(name: 'Jacob')
+      visit new_student_address_path(student)
+
       fill_in 'address[description]', with: 'Home'
       fill_in 'address[street_address]', with: '1234 Fake Street'
       fill_in 'address[city]', with: 'Denver'
