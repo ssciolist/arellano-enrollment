@@ -3,6 +3,7 @@ require 'rails_helper'
 describe 'As a user' do
   describe 'when I visit /students/:id/edit' do
     scenario 'I can fill in a form' do
+      student = Student.create!(name: 'Mike')
       visit edit_student_path
 
       fill_in 'student[name]', with: 'Barb'

@@ -22,6 +22,12 @@ class StudentsController < ApplicationController
     render :show
   end
 
+  def edit
+    require 'pry'; binding.pry
+    @student = Student.find(params[:id])
+    render :edit
+  end
+
   private
 
     def student_params
