@@ -13,14 +13,14 @@ class AddressesController < ApplicationController
     @student = Student.find(params[:student_id])
     @address = @student.addresses.new(address_params)
     if @student.save
-      redirect_to student_address_path(@student)
+      redirect_to student_address_path(@student.id, @address.id)
     else
       render :new
     end
   end
 
   def show
-    @student = Student.find(params[:student_id]).id
+    @student = Student.find(params[:student_id])
     @addresses = @student.addresses.all
     render :show
   end
